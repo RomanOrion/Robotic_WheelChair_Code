@@ -1,0 +1,4 @@
+need to have gazebo_ros installed. 
+command
+roslaunch gazebo_ros_world my_world.launch
+gazebo --> click walls, go to add path tab, select path to the file, then click walls 
