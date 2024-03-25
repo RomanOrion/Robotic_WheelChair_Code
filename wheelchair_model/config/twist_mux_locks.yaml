@@ -1,0 +1,6 @@
+locks:
+-
+  name: emergency_stop
+  topic: emergency_stop
+  timeout: 10.0
+  priority: 255
