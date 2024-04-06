@@ -31,6 +31,7 @@ namespace empty_local_planner {
 
         // compute velocity commands, overriden to true without commands
         bool computeVelocityCommands(geometry_msgs::Twist& cmd_vel) override;
+        
 
         // check goal is reached, always return false 
         bool isGoalReached() override;
