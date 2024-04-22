@@ -1,5 +1,19 @@
-Step by Step Guide to Wiring up the Wheelchair for Raspberry Pi and Dependencies for Software 
 
+Dependencies Needed/ Packages to Install 
+
+SLAM Toolbox 
+  https://github.com/SteveMacenski/slam_toolbox.git
+twist_mux 
+  https://github.com/ros/geometry2.git
+laser_filters
+  https://github.com/ros-perception/laser_filters.git
+rplidar_ros 
+  https://github.com/Slamtec/rplidar_ros.git
+
+
+
+
+Step by Step Guide to Wiring up the Wheelchair for Raspberry Pi and Dependencies for Software 
 Requirements
 Hardware                                         
 - picamera                                         
@@ -34,6 +48,7 @@ Hardware
    7. Write python program to control the ToF sensors
 
 2. Ubuntu 20.04 desktop
+   
      1. Install Raspberry pi imager
      2. Mount SD card into computer/laptop
      3. Flash ‘ubuntu 20.04 server’ onto SD card
@@ -41,7 +56,8 @@ Hardware
      5. Mount SD card into raspberry pi
      6. Use Debian package ‘tasksel’ to install ubuntu 20.04 desktop
   
-  3.  Installation of ROS Noetic
+  4.  Installation of ROS Noetic
+
        1. Open terminal on the raspberry pi
        2. Run the commands to install ros (in order):
                 a. Set up sources list – “sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu                     $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'”
@@ -64,29 +80,34 @@ Hardware
            b. Sudo apt-get install python3-catkin-tools
      For trouble shooting and additional Documentation for Catkin Tools seek:
     https://catkin-tools.readthedocs.io/en/latest/installing.html
-4. Install Git
+
+6. Install Git
+   
        1. Open terminal on the Raspberry Pi
        2. sudo apt-get update
        3. sudo apt-get install git-all
-5. ROS Dependencies
+   
+8. ROS Dependencies
+   
        1. Open terminal on the Raspberry Pi
        2.a. Gazebo Sim installation:
-   sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' 
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add - 
-sudo apt-get update
-      b.  sudo apt-get install libgz-sim<#>-dev
-     3.a  ROS Navigation – select noetic-devel branch
+       sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list' 
+       wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add - 
+       sudo apt-get update
+   
+       b.  sudo apt-get install libgz-sim<#>-dev
+       3.a  ROS Navigation – select noetic-devel branch
        b. click the code button and copy the HTTPS
        c. type :  git clone https://github.com/ros-planning/navigation.git
-     4.a    rplidar_sdk – select master branch
-       b.    Enter: git clone https://github.com/Slamtec/rplidar_sdk.git
-     5.a. SLAM Toolbox – select noetic-devel :
+       4.a  rplidar_sdk – select master branch
+       b. Enter: git clone https://github.com/Slamtec/rplidar_sdk.git
+       5.a. SLAM Toolbox – select noetic-devel :
        b. Enter : git clone https://github.com/SteveMacenski/slam_toolbox.git
-     6.a twist_mux – select noetic-devel
+       6.a twist_mux – select noetic-devel
        b. Enter: git clone https://github.com/ros-teleop/twist_mux.git
-     7.a  laser_filter – select noetic-devel
+       7.a  laser_filter – select noetic-devel
        b.  Enter: git clone https://github.com/ros-perception/laser_filters.git
-     8.a. geomtery2 – select noetic-devel
+       8.a. geomtery2 – select noetic-devel
        b. Enter: git clone https://github.com/ros/geometry2.git
    
 5. Pi Camera
