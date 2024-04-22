@@ -3,15 +3,17 @@ Dependencies Needed/ Packages to Install
 
 SLAM Toolbox 
   https://github.com/SteveMacenski/slam_toolbox.git
+  
 twist_mux 
   https://github.com/ros/geometry2.git
+  
 laser_filters
   https://github.com/ros-perception/laser_filters.git
+  
 rplidar_ros 
   https://github.com/Slamtec/rplidar_ros.git
 
-
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Step by Step Guide to Wiring up the Wheelchair for Raspberry Pi and Dependencies for Software 
 Requirements
