@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   rviz
   std_msgs
+  nav_msgs
   urdf
   xacro
 )
@@ -108,8 +109,15 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES wheelchair_model
-#  CATKIN_DEPENDS roscpp rospy rviz std_msgs urdf xacro
-#  DEPENDS system_lib
+  CATKIN_DEPENDS 
+    roscpp 
+    rospy 
+    rviz 
+    std_msgs  
+    nav_msgs
+    urdf 
+    xacro
+  DEPENDS system_lib 
 )
 
 ###########
