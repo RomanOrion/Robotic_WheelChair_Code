@@ -1,5 +1,7 @@
 
 Dependencies Needed/ Packages to Install 
+DWA planner 
+https://github.com/amslabtech/dwa_planner.git
 
 SLAM Toolbox 
   https://github.com/SteveMacenski/slam_toolbox.git
