@@ -32,8 +32,8 @@
        ixx="4.78658" ixy="0.0" ixz="0.0" iyy="3.99967" iyz="0.0" izz="5.36878"
   -->
 
-  <material name="gray">
-    <color rgba="0.1 0.1 0.1 1"/>
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
   </material>
   <material name="black">
     <color rgba="0 0 0 1"/>
@@ -50,7 +50,7 @@
 			<geometry>
 				<box size="${wheelchair_base_length} ${wheelchair_base_width} 0.28"/>
 			</geometry>
-      <material name="gray"/>
+      <material name="black"/>
 		</visual>
 
 		<collision name="collision">
@@ -82,7 +82,7 @@
 			<geometry>
 				<box size="0.35 0.08 0.005"/>
 			</geometry>
-      <material name="gray"/>
+      <material name="black"/>
 		</visual>
 
 		<collision name="collision">
@@ -106,7 +106,7 @@
 			<geometry>
 				<box size="0.097 0.07 0.055"/>
 			</geometry>
-      <material name="gray"/>
+      <material name="blue"/>
 		</visual>
 
 		<collision name="collision">
@@ -139,16 +139,15 @@
         </scan>
 
         <range>
-          <min>0.15</min>
+          <min>0.3</min>
           <max>12.0</max>
           <resolution>1</resolution>
         </range>
       </ray>
 
       <plugin name="lidar_ray_controller" filename="libgazebo_ros_laser.so">
-        <frame_name>lidar_A1</frame_name>
+        <frame_name>lidar</frame_name>
         <topicName>/scan</topicName>
-        <!--robotNamespace>/</robotNamespace-->
       </plugin>
     </sensor>
   
@@ -160,7 +159,7 @@
 			<geometry>
 				<box size="0.51 0.44 0.10"/>
 			</geometry>
-      <material name="gray"/>
+      <material name="black"/>
 		</visual>
 
 		<collision name="collision">
@@ -183,7 +182,7 @@
 			<geometry>
 				<box size="0.8 0.05 0.20"/>
 			</geometry>
-      <material name="gray"/>
+      <material name="black"/>
 		</visual>
 
 		<collision name="collision">
@@ -206,7 +205,7 @@
 			<geometry>
 				<box size="0.8 0.05 0.20"/>
 			</geometry>
-      <material name="gray"/>
+      <material name="black"/>
 		</visual>
 
 		<collision name="collision">
@@ -411,38 +410,38 @@
 
   <!-- wheelchair caster wheels are set to have low friction -->
   <gazebo reference="right_front_wheel">
-		<mu1>0.01</mu1>
-		<mu2>0.01</mu2>
+		<mu1>0.001</mu1>
+		<mu2>0.001</mu2>
 	</gazebo>
 
   <gazebo reference="left_front_wheel">
-		<mu1>0.01</mu1>
-		<mu2>0.01</mu2>
+		<mu1>0.001</mu1>
+		<mu2>0.001</mu2>
 	</gazebo>
 
   <gazebo reference="right_back_wheel">
-		<mu1>0.01</mu1>
-		<mu2>0.01</mu2>
+		<mu1>0.001</mu1>
+		<mu2>0.001</mu2>
 	</gazebo>
 
   <gazebo reference="left_back_wheel">
-		<mu1>0.01</mu1>
-		<mu2>0.01</mu2>
+		<mu1>0.001</mu1>
+		<mu2>0.001</mu2>
 	</gazebo>
 
-  <!-- physics values for large wheels are taken from values used in code examples from https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
+  <!-- physics values for large wheels are based of values used in code examples from https://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo -->
   <!-- max velocity is set as the radians per second needed to travel at 6 kmh with wheels of radius 16 cm-->
   <gazebo reference="right_large_wheel">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
+    <mu1 value="1.0"/>
+    <mu2 value="0.25"/>
     <kp value="10000000.0" />
     <kd value="1.0" />
 		<maxVel value = "9.26"/>
 	</gazebo>
 
   <gazebo reference="left_large_wheel">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
+    <mu1 value="1.0"/>
+    <mu2 value="025"/>
     <kp value="10000000.0" />
     <kd value="1.0" />
 		<maxVel value = "9.26"/>
@@ -455,21 +454,21 @@
       <updateRate>10.0</updateRate>
       <robotNamespace>/</robotNamespace>
       <robotBaseFrame>base_link</robotBaseFrame>
-      <leftJoint>right_large_wheel_joint</leftJoint>
-      <rightJoint>left_large_wheel_joint</rightJoint>
+      <leftJoint>left_large_wheel_joint</leftJoint>
+      <rightJoint>right_large_wheel_joint</rightJoint>
       <wheelSeparation>0.475</wheelSeparation>
       <wheelDiameter>0.36</wheelDiameter>
 
-      <topicName>cmd_vel</topicName>
-      <commandTopic>cmd_vel</commandTopic>
-      <topic_name_twist>cmd_vel</topic_name_twist>
+      <topicName>/cmd_vel_out</topicName>
+      <commandTopic>/cmd_vel_out</commandTopic>
+      <topic_name_twist>/cmd_vel_out</topic_name_twist>
 
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <topic_name_odometry>odom</topic_name_odometry>
       
       <!--Default values-->
-      <publishTF>1</publishTF>
+      <publishTF>10</publishTF>
       <publishWheelTF>False</publishWheelTF>
       <publishWheelJointState>False</publishWheelJointState>
       <publishOdomTF>True</publishOdomTF> 
